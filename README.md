@@ -209,8 +209,7 @@ Protected (Bearer token):
 ## Environment Variables
 
 ```
-DB=mongodb+srv://2405066_db_user:amuKTQM5yEtUqcnF@mycluster.y78x2nr.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster
-SECRET_KEY=HELLO
+
 ```
 ## Database
 
