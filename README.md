@@ -1,37 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MedManager
+MedManager is a full‑stack medication management web app that helps patients track medicines, calculate treatment costs, and manage prescriptions over time. It combines a modern Next.js frontend with a FastAPI backend and MongoDB for persistence.
 
-## Getting Started
+## Features
+### Medicine search
 
-First, run the development server:
+- Search by name, manufacturer, or short composition.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- View pack details, composition, manufacturer, and discontinuation status.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Allergy-aware highlighting based on your saved allergy list.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Saved medicines
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Add/remove medicines to a personal “saved” list.
 
-## Learn More
+- Saved medicines are reused in the cost calculator and prescriptions.
 
-To learn more about Next.js, take a look at the following resources:
+### Cost calculator
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Select saved medicines and define:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  - Dosage per intake.
 
-## Deploy on Vercel
+  - Frequency (per day, per week, per month).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - Weekly or monthly schedules.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# MedManager" 
+- Choose a start and end date and calculate:
+
+  - Total quantity required.
+
+  - Per‑medicine and overall cost.
+
+  - Uses pack size labels to derive cost per unit.
+
+ ### Prescriptions
+
+- Save a cost configuration as a prescription for a date range.
+
+- Persist prescriptions to the backend for later reference and integration with tracking.
+
+### Tracking calendar
+
+- Calendar view to visualize medication schedules and adherence over time.
+
+- Uses the saved prescription data for day‑wise planning.
+
+### User profile & allergies
+
+- JWT‑based authentication (token stored client‑side).
+
+- View/update profile details (name, email, phone).
+
+- Manage allergy list; UI blocks selecting medicines that match your allergens.
+
+### Responsive UI & theming
+
+- Next.js App Router with client components where needed.
+
+- Tailwind CSS with a custom purple/ink color palette.
+
+- shadcn/ui primitives (AlertDialog, Dialog, Popover, Calendar, etc.) with consistent light card styling.
+
+## Tech Stack
+### Frontend
+
+- Next.js (React, App Router)
+
+- TypeScript
+
+- Tailwind CSS (custom theme via @theme)
+
+- shadcn/ui + Radix primitives
+
+### Backend
+
+- FastAPI (Python)
+
+- RESTful endpoints for auth, medicines, cost calculation, prescriptions, and allergies
+
+### Database
+
+- MongoDB / MongoDB Atlas
+
+### Auth
+
+- JWT tokens stored in localStorage for authenticated API calls
