@@ -1,5 +1,5 @@
 # MedManager
-MedManager is a full‑stack medication management web app that helps patients track medicines, calculate treatment costs, and manage prescriptions over time. It combines a modern Next.js frontend with a FastAPI backend and MongoDB for persistence.
+MedManager is a full‑stack medication management web app that helps patients track medicines, calculate treatment costs, and manage prescriptions over time.
 
 ## Features
 ### Medicine search
@@ -86,3 +86,148 @@ MedManager is a full‑stack medication management web app that helps patients t
 ### Auth
 
 - JWT tokens stored in localStorage for authenticated API calls
+
+#  Project Structure
+
+```
+my-app/
+├── .env
+├── .env.local
+├── .gitignore
+├── next-env.d.ts
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tailwind.config.ts
+├── tsconfig.json
+├── node_modules/
+├── public/
+│   ├── assets/
+│   │   ├── Calculator-rafiki.svg
+│   │   └── undraw_date-picker_8qys.svg
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── app/
+│   ├── api/
+│   │   ├── add_med_calc/
+│   │   │   └── route.ts
+│   │   ├── add_prescription/
+│   │   │   └── route.ts
+│   │   ├── allergies/
+│   │   │   └── route.ts
+│   │   ├── bookmarks/
+│   │   │   └── route.ts
+│   │   ├── Calculate/
+│   │   │   └── route.ts
+│   │   ├── delete_user/
+│   │   │   └── route.ts
+│   │   ├── enter_med/
+│   │   │   └── route.ts
+│   │   ├── fetch_med_calc/
+│   │   │   └── route.ts
+│   │   ├── fetch_prescription/
+│   │   │   └── route.ts
+│   │   ├── get_medicine/
+│   │   │   └── route.ts
+│   │   ├── login/
+│   │   │   └── route.ts
+│   │   ├── me/
+│   │   │   └── route.ts
+│   │   ├── phone/
+│   │   │   └── route.ts
+│   │   ├── register/
+│   │   │   └── route.ts
+│   │   ├── auth.ts
+│   │   └── mongodb.ts
+│   ├── calculate/
+│   │   └── page.tsx
+│   ├── calendar_pg/
+│   │   └── page.tsx
+│   ├── login/
+│   │   └── page.tsx
+│   ├── signup/
+│   │   └── page.tsx
+│   ├── UserDash/
+│   │   └── page.tsx
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── TitleBar.tsx
+│   ├── Dialog.tsx
+│   └── ui/
+│       ├── alert-dialog.tsx
+│       ├── button.tsx
+│       ├── calendar.tsx
+│       ├── dialog.tsx
+│       ├── dropdown-menu.tsx
+│       ├── input.tsx
+│       ├── label.tsx
+│       ├── popover.tsx
+│       └── switch.tsx
+├── lib/
+│   ├── utils.ts
+│   └── types.ts
+└── models/
+    ├── calc.ts
+    ├── medicine.ts
+    ├── Prescription.ts
+    └── User.ts
+
+
+```
+# API Endpoints
+
+Public:
+
+- GET /api/get_medicine – Search medicines (?term=paracetamol&type=name)
+
+Protected (Bearer token):
+
+- GET /api/fetch_med_calc – User’s saved cost medicines (?userId=...)
+
+- POST /api/add_med_calc – Add/remove cost medicine
+
+- PUT /api/Calculate – Compute cost for date range
+
+- POST /api/add_prescription – Save prescription
+
+- GET/POST/DELETE /api/allergies – Manage allergies
+
+- GET /api/me – User profile
+
+- PUT /api/phone – Update phone
+
+- DELETE /api/delete_user – Delete account
+
+## Environment Variables
+
+```
+DB=mongodb+srv://2405066_db_user:amuKTQM5yEtUqcnF@mycluster.y78x2nr.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster
+SECRET_KEY=HELLO
+```
+## Database
+
+MongoDB collections:
+
+users – User profiles, allergies, tokens.
+
+medicines – Full medicine dataset from Indian Medicine Dataset.
+
+med_calc – User’s saved cost medicines.
+
+prescriptions – Saved prescriptions with schedules.
+
+
+
+
+
+
+
+
