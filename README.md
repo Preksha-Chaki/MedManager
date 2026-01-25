@@ -208,8 +208,11 @@ Protected (Bearer token):
 
 ## Environment Variables
 
+Create a .env.local file:
 ```
-
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/recipe-nest
+SECRET_KEY=your_jwt_secret_minimum_32_characters_long
 ```
 ## Database
 
@@ -223,8 +226,22 @@ med_calc – User’s saved cost medicines.
 
 prescriptions – Saved prescriptions with schedules.
 
+## Getting Started
 
+```
+# Clone the repository
+git clone https://github.com/Preksha-Chaki/MedManager.git
+cd my-app
 
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.local
+
+# Start development server
+npm run dev
+```
 
 
 
