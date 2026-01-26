@@ -211,7 +211,7 @@ Protected (Bearer token):
 Create a .env.local file:
 ```
 NEXT_PUBLIC_APP_URL=http://localhost:3000
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/recipe-nest
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/my-app
 SECRET_KEY=your_jwt_secret_minimum_32_characters_long
 ```
 ## Database
